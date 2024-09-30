@@ -11,17 +11,9 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     
-     public function chirps(): HasMany
-    {
-        return $this->hasMany(Chirp::class);
-    }
-    
-    
-    
-    
     use HasFactory, Notifiable;
-
-    /**
+    
+     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
@@ -32,7 +24,7 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
+     /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -54,4 +46,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function chirps(): HasMany
+    {
+        return $this->hasMany(Chirp::class);
+    }
+        
+    
+   
+
+   
+
+    
 }
